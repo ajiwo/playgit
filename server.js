@@ -13,6 +13,6 @@ app = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.end('Hello World\n');
 });
-app.listen(port, function(/* args ?*/)  {
+app.listen(port, host, function(/* args ?*/)  {
     console.log('Server running at http://'+host+':'+port+'/');
 });

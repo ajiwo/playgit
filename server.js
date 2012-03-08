@@ -1,7 +1,9 @@
-var http = require('http')
+var app
+,   http = require('http')
 ,   host = '127.0.0.1'
 ,   port = 2000;
-http.createServer(function (req, res) {
+
+app = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.end('Hello World\n');
 }).listen(port);

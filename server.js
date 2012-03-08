@@ -14,5 +14,6 @@ app = http.createServer(function (req, res) {
     res.end('Hello World\n');
 });
 app.listen(port, host, function(/* args ?*/)  {
+    host = host || '0.0.0.0';
     console.log('Server running at http://'+host+':'+port+'/');
 });

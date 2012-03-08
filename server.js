@@ -6,6 +6,7 @@ var app
 app = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.end('Hello World\n');
-}).listen(port);
+});
+app.listen(port);
 console.log('Server running at http://'+host+':'+port+'/');
 

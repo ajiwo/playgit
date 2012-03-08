@@ -1,5 +1,7 @@
 var app
+,   fs = require('fs')
 ,   http = require('http')
+,   url = require('url')
 ,   host = '127.0.0.1'
 ,   port = 2000;
 
@@ -10,6 +12,7 @@ app = http.createServer(function (req, res) {
     console.log('Request from '+remip+':'+remport);
     console.log('  ua: '+req.headers['user-agent']);
     console.log('  url: '+req.url);
+    console.log('  file: '+url.parse(req.url).pathname);
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.end('Hello World\n');
 });

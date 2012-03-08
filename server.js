@@ -13,7 +13,20 @@ app = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-type': 'text/plain'});
     res.end('Hello World\n');
 });
-app.listen(port, host, function(/* args ?*/)  {
-    host = host || '0.0.0.0';
-    console.log('Server running at http://'+host+':'+port+'/');
-});
+
+if(port) {
+    app.listen(port, host, function(/* args ?*/)  {
+        host = host || '0.0.0.0';
+        console.log('Server running at http://'+host+':'+port+'/');
+    });
+}
+else {
+    // also dont pass host argument, 
+    // it will be assumed as UNIX socket path
+    // and a socket file will be created
+    app.listen(function(/* args ?*/)  {
+        host = app.address().address;
+        port = app.address().port;
+        console.log('Server running at http://'+host+':'+port+'/');
+    });
+}
